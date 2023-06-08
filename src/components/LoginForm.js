@@ -1,8 +1,15 @@
 import React from "react";
 import Button from "./Button";
 import logo from "src/assets/lososola2.png";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/", { state: { home: true } });
+  };
   return (
     <div className="bg-[url('src/assets/bg.svg')] h-screen w-screen bg-cover bg-no-repeat overflow-hidden">
       <div className="w-full h-full flex justify-center items-center font-gaegu font-bold  flex-col gap-4 text-4xl">
@@ -18,8 +25,17 @@ const LoginForm = () => {
             <input type="password" className="rounded-full" />
           </div>
         </form>
-        <Button text="Login" path="/" home={true} />
-        <p>Dont have an account ? Sign up here!</p>
+        <Button
+          text="Login"
+          onClick={handleClick}
+          home={true}
+          className={
+            "bg-[#8C52FF] px-4 py-2 rounded-full cursor-pointer hover:bg-[#6619ff] transition duration-200"
+          }
+        />
+        <p>
+          Dont have an account ? <Link to={"/signup"}>Sign up here!</Link>
+        </p>
       </div>
     </div>
   );

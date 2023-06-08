@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         gaegu: ["Gaegu", "cursive"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
