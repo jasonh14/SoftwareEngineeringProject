@@ -8,7 +8,7 @@ const Main = () => {
     <div className="py-6 flex flex-col justify-center items-center">
       <div className="flex flex-row items-center gap-4 py-2">
         <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
-          <img src={sample} alt="" />
+          <img src={sample} alt="foto" />
         </div>
         <div className="font-gaegu font-bold text-4xl">Jason Hartanto</div>
       </div>
