@@ -4,7 +4,7 @@ import logo from "src/assets/lososola2.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({ teacher }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -34,7 +34,10 @@ const LoginForm = () => {
           }
         />
         <p>
-          Dont have an account ? <Link to={"/signup"}>Sign up here!</Link>
+          Dont have an account ?{" "}
+          <Link to={teacher ? "/teacher/signup" : "/signup"}>
+            Sign up here!
+          </Link>
         </p>
       </div>
     </div>
