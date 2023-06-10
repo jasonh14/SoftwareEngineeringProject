@@ -22,6 +22,7 @@ const Login = () => {
       const user = userCredential.user;
       console.log("User signed in:", user);
       setWrongPass(false);
+      localStorage.setItem("userData", JSON.stringify(user));
 
       // Continue with other logic or operations after sign-in
       // ...
