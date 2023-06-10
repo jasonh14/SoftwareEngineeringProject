@@ -8,7 +8,7 @@ const ReviewCard = ({ closeModal }) => {
 
   const submitReview = () => {
     setSubmit(true);
-  };
+};
 
   return (
     <>

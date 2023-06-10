@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, firestore } from "src/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const [selectedGender, setSelectedGender] = useState("");
@@ -31,6 +34,44 @@ const SignUp = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [canSubmit, setCanSubmit] = useState(false);
 
+  const signUp = async (email, password, userData) => {
+    try {
+      // Step 1: Create a new user account
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // Step 2: User creation successful
+      const user = userCredential.user;
+
+      // Step 3: Create a reference to the Firestore collection "users"
+      const usersCollectionRef = collection(firestore, "users");
+
+      // Step 4: Combine additional user data with the user ID
+      const userDataWithId = {
+        ...userData,
+        uid: user.uid,
+        email: email,
+        description: "-",
+        photo: "",
+      };
+
+      // Step 5: Store the user data in Firestore by adding a new document
+      const docRef = await addDoc(usersCollectionRef, userDataWithId);
+
+      console.log("User created and data stored in Firestore:", docRef.id);
+      // Step 6: Retrieve the current user data
+      // const currentUserData = { ...userDataWithId, id: docRef.id };
+      // // Step 7: Store user data in localStorage
+      // localStorage.setItem("userData", JSON.stringify(currentUserData));
+      // console.log("Current User Data:", currentUserData);
+    } catch (error) {
+      console.error("Error creating user:", error);
+      console.error("Error storing user data in Firestore:", error);
+    }
+  };
+
   const handleSelectChangeCity = (event) => {
     setSelectedCity(event.target.value);
   };
@@ -50,7 +91,7 @@ const SignUp = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Reset all fill states
@@ -127,6 +168,17 @@ const SignUp = () => {
       console.log(password);
       console.log(confirmPass);
       console.log(checkedTnc);
+
+      const userData = {
+        name: name,
+        address: address,
+        checkedTnc: checkedTnc,
+        city: selectedCity,
+        gender: selectedGender,
+        date: startDate,
+      };
+      await signUp(email, password, userData);
+
       navigate("/");
     }
   };

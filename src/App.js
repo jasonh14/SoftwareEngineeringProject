@@ -30,6 +30,8 @@ export default function App() {
           <Route path="/teacher/view-appointment" element={<TeacherViewAppointment />} />
           <Route path="/teacher/profile" element={<TeacherProfile />} />
           <Route path="/teachers/:username" element={<Book />} />
+          <Route path="/teacher/home" element={<HomeTeacher />} />
+          <Route path="/profile/:username" element={<Profile />} />
         </Routes>
       </Router>
     </div>

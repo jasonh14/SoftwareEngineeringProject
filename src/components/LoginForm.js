@@ -4,12 +4,17 @@ import logo from "src/assets/lososola2.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ teacher }) => {
+const LoginForm = ({
+  teacher,
+  handleClick,
+  pass,
+  setPass,
+  email,
+  setEmail,
+  wrongPass,
+}) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/", { state: { home: true } });
-  };
   return (
     <div className="bg-[url('src/assets/bg.svg')] h-screen w-screen bg-cover bg-no-repeat overflow-hidden">
       <div className="w-full h-full flex justify-center items-center font-gaegu font-bold  flex-col gap-4 text-4xl">
@@ -17,13 +22,28 @@ const LoginForm = ({ teacher }) => {
         <form className="flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <label>Email: </label>
-            <input className="rounded-full p-2" type="email" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="rounded-full p-2"
+              type="email"
+            />
           </div>
 
           <div className="flex justify-between items-center">
             <label>Password: </label>
-            <input type="password" className="rounded-full" />
+            <input
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+              type="password"
+              className="rounded-full"
+            />
           </div>
+          {wrongPass && (
+            <p className="font-poppins font-normal text-[16px] text-red-400">
+              Wrong password!
+            </p>
+          )}
         </form>
         <Button
           text="Login"

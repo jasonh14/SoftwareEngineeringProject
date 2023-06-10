@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import sample from "src/assets/sample.jpg";
 import Rating from "@mui/material/Rating";
 import { useNavigate } from "react-router-dom";
+import defPhoto from "src/assets/user.png";
 
-const TeacherCard = () => {
-  const [value, setValue] = useState(null);
+const TeacherCard = ({ teacher }) => {
+  const [value, setValue] = useState(teacher.rating);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/teachers/jason");
+    navigate(`/teachers/${teacher.uid}`);
+  };
+
+  const formatNumber = (number) => {
+    const formattedNumber = number.toLocaleString("en-US").replace(",", ".");
+
+    return formattedNumber;
   };
 
   return (
@@ -18,12 +25,12 @@ const TeacherCard = () => {
     >
       <div className="">
         <div className="h-[150px] w-[150px] overflow-hidden rounded-full">
-          <img src={sample} alt="sample" />
+          <img src={teacher?.photo || defPhoto} alt="sample" />
         </div>
       </div>
       <div className="font-gaegu">
-        <h1 className="font-semibold text-2xl">Esther Vemberly</h1>
-        <p>Classical, Christian, and Pop Music</p>
+        <h1 className="font-semibold text-2xl">{teacher.name}</h1>
+        <p>{teacher.desc}</p>
         <div className="flex flex-row gap-2">
           <Rating
             name="simple-controlled"
@@ -32,12 +39,12 @@ const TeacherCard = () => {
               setValue(newValue);
             }}
           />
-          <p>(77)</p>
+          <p>({teacher.ratingAmount})</p>
         </div>
         <p className="bg-[#D2AFFF] px-4 py-2 my-2 rounded-full">
-          Price: Rp 100.000,00 / Session
+          Rp {formatNumber(teacher.price)} / Session
         </p>
-        <p>128 students</p>
+        <p>{teacher.students} students</p>
       </div>
     </div>
   );
