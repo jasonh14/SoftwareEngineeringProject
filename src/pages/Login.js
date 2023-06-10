@@ -23,7 +23,7 @@ const Login = () => {
       console.log("User signed in:", user);
       setWrongPass(false);
       localStorage.setItem("userData", JSON.stringify(user));
-
+      navigate("/", { state: { home: true } });
       // Continue with other logic or operations after sign-in
       // ...
     } catch (error) {
@@ -40,7 +40,7 @@ const Login = () => {
   };
   const handleClick = () => {
     signIn(email, pass);
-    navigate("/", { state: { home: true } });
+    
   };
 
   return (

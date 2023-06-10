@@ -9,6 +9,7 @@ import Book from "./pages/Book";
 import TeacherLogin from "./pages/TeacherLogin";
 import TeacherSignup from "./pages/TeacherSignup";
 import HomeTeacher from "./pages/HomeTeacher";
+import Profile from "src/pages/Profile.js";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/teacher/signup" element={<TeacherSignup />} />
           <Route path="/teachers/:username" element={<Book />} />
           <Route path="/teacher/home" element={<HomeTeacher />} />
+          <Route path="/profile/:username" element={<Profile />} />
         </Routes>
       </Router>
     </div>

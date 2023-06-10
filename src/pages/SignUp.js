@@ -49,7 +49,13 @@ const SignUp = () => {
       const usersCollectionRef = collection(firestore, "users");
 
       // Step 4: Combine additional user data with the user ID
-      const userDataWithId = { ...userData, uid: user.uid };
+      const userDataWithId = {
+        ...userData,
+        uid: user.uid,
+        email: email,
+        description: "-",
+        photo: "",
+      };
 
       // Step 5: Store the user data in Firestore by adding a new document
       const docRef = await addDoc(usersCollectionRef, userDataWithId);
