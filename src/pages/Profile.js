@@ -17,6 +17,50 @@ const Profile = () => {
   const [showEditDesc, setShowEditDesc] = useState(false);
   const navigate = useNavigate();
   // console.log("user state", user);
+  const getUserByUID = async (uid) => {
+    const usersCollectionRef = collection(firestore, "users");
+
+    // Create a query to filter documents based on the UID field
+    const q = query(usersCollectionRef, where("uid", "==", uid));
+
+    try {
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.size > 0) {
+        // Assuming there's only one document matching the UID
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
+
+        // Access the user data
+        console.log("User data:", userData);
+        setUser(userData);
+
+        // You can return the user data or perform other operations with it
+        localStorage.setItem("userProfile", JSON.stringify(userData));
+      } else {
+        console.log("No user found with the given UID");
+      }
+    } catch (error) {
+      console.error("Error retrieving user:", error);
+    }
+  };
+
+  const fetchData = async () => {
+    try {
+      // Retrieve user data from local storage
+      const userData = localStorage.getItem("userData");
+      const { uid } = JSON.parse(userData);
+      console.log(uid);
+      getUserByUID(uid);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const firstLoad = async () => {
+    await fetchData();
+  };
+
   const handleLogout = async () => {
     const auth = getAuth();
 
@@ -44,7 +88,7 @@ const Profile = () => {
 
   useEffect(() => {
     console.log("test");
-    // firstLoad();
+    firstLoad();
     const localData = JSON.parse(localStorage.getItem("userProfile"));
     setUser(localData);
   }, []);
@@ -57,7 +101,7 @@ const Profile = () => {
       )}
 
       <div>
-        <Navbar />
+        <Navbar user={user} />
         <div>
           <div className="w-screen h-[150px] bg-slate-400"></div>
           <div className="flex flex-row justify-start py-4 gap-12 items-start">
