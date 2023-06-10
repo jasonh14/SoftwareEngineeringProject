@@ -9,7 +9,7 @@ const Navbar = () => {
       {/* left */}
       <div className="flex flex-row gap-6">
         <Link to="/">
-          <div>
+          <div className="h-full">
             <img className="cursor-pointer h-full" src={logo} alt="" />
           </div>
         </Link>
