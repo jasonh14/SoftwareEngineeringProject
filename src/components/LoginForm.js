@@ -4,12 +4,16 @@ import logo from "src/assets/lososola2.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
 const LoginForm = ({ teacher }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/", { state: { home: true } });
   };
+
+  
+
   return (
     <div className="bg-[url('src/assets/bg.svg')] h-screen w-screen bg-cover bg-no-repeat overflow-hidden">
       <div className="w-full h-full flex justify-center items-center font-gaegu font-bold  flex-col gap-4 text-4xl">
