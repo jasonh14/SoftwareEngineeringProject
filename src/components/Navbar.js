@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="flex flex-row sticky justify-between font-gaegu h-[100px] shadow-lg p-6">
       {/* left */}
       <div className="flex flex-row gap-6">
-        <Link to="/">
+        <Link to="/" state={{ home: true }}>
           <div className="h-full">
             <img className="cursor-pointer h-full" src={logo} alt="" />
           </div>
