@@ -8,6 +8,10 @@ import History from "src/pages/History";
 import Book from "./pages/Book";
 import TeacherLogin from "./pages/TeacherLogin";
 import TeacherSignup from "./pages/TeacherSignup";
+import TeacherTerms from "./pages/TeacherTerms";
+import TeacherHome from "./pages/TeacherHome";
+import TeacherViewAppointment from "./pages/TeacherViewAppointment";
+import TeacherProfile from "./pages/TeacherProfile";
 
 export default function App() {
   return (
@@ -21,6 +25,10 @@ export default function App() {
           <Route path="/history" element={<History />} />
           <Route path="/teacher/login" element={<TeacherLogin />} />
           <Route path="/teacher/signup" element={<TeacherSignup />} />
+          <Route path="/teacher/terms" element={<TeacherTerms />} />
+          <Route path="/teacher/home" element={<TeacherHome />} />
+          <Route path="/teacher/view-appointment" element={<TeacherViewAppointment />} />
+          <Route path="/teacher/profile" element={<TeacherProfile />} />
           <Route path="/teachers/:username" element={<Book />} />
         </Routes>
       </Router>

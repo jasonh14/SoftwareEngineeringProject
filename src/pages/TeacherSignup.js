@@ -66,7 +66,7 @@ const TeacherSignup = () => {
             <div className="flex flex-row items-center gap-2">
               <input type="checkbox"/>
               <p>
-                I agree to the <a href="/teacher/terms" className="hover:text-[#6619ff] transition duration-200">terms and condition</a>
+                I agree to the <a href="/teacher/terms" className="hover:text-[#6619ff] transition duration-200"><u>terms and condition</u></a>
               </p>
             </div>
           </div>
