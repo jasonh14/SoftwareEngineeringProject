@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         gaegu: ["Gaegu", "cursive"],
         poppins: ["Poppins", "sans-serif"],
+        montserrat:["Montserrat", "sans-serif"]
       },
     },
   },
