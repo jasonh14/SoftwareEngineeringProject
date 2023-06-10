@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import sample from "src/assets/sample.jpg";
 import Rating from "@mui/material/Rating";
+import { useNavigate } from "react-router-dom";
 
 const TeacherCard = () => {
   const [value, setValue] = useState(null);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/teachers/jason");
+  };
+
   return (
-    <div className="flex flex-row px-8 cursor-pointer py-12 rounded-xl shadow-lg bg-white gap-6 justify-center">
+    <div
+      onClick={handleClick}
+      className="flex flex-row px-8 cursor-pointer py-12 rounded-xl shadow-lg bg-white gap-6 justify-center"
+    >
       <div className="">
         <div className="h-[150px] w-[150px] overflow-hidden rounded-full">
           <img src={sample} alt="sample" />

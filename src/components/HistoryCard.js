@@ -3,7 +3,7 @@ import sample from "src/assets/sample.jpg";
 import Rating from "@mui/material/Rating";
 import ReviewCard from "./ReviewCard";
 
-const HistoryCard = () => {
+const HistoryCard = ({ online }) => {
   const [value, setValue] = useState(null);
   const [showReview, setShowReview] = useState(false);
 
@@ -18,10 +18,7 @@ const HistoryCard = () => {
     <>
       {showReview && <ReviewCard closeModal={closeModal} />}
 
-      <div
-        onClick={openModal}
-        className="flex flex-row px-8 cursor-pointer py-12 rounded-xl shadow-lg bg-white gap-6 justify-center items-center"
-      >
+      <div className="flex flex-row px-8 cursor-pointer py-12 rounded-xl shadow-lg bg-white gap-6 justify-center items-center">
         <div className="">
           <div className="h-[150px] w-[150px] overflow-hidden rounded-full">
             <img src={sample} alt="sample" />
@@ -30,7 +27,7 @@ const HistoryCard = () => {
         <div className="font-gaegu">
           <h1 className="font-semibold text-3xl">Esther Vemberly</h1>
           <p className="text-xl">Monday, 22 May 2023</p>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row gap-2" onClick={openModal}>
             <Rating
               name="simple-controlled"
               value={value}
@@ -40,6 +37,11 @@ const HistoryCard = () => {
               size="large"
             />
           </div>
+          {online && (
+            <button className="bg-[#D2AFFF] p-4 rounded-full my-2">
+              Start Session
+            </button>
+          )}
         </div>
       </div>
     </>

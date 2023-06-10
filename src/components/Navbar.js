@@ -8,9 +8,11 @@ const Navbar = () => {
     <div className="flex flex-row sticky justify-between font-gaegu h-[100px] shadow-lg p-6">
       {/* left */}
       <div className="flex flex-row gap-6">
-        <div>
-          <img className="h-full" src={logo} alt="" />
-        </div>
+        <Link to="/">
+          <div>
+            <img className="cursor-pointer h-full" src={logo} alt="" />
+          </div>
+        </Link>
         <Link to="/teachers">
           <div className="bg-[#D2AFFF] px-4 py-2 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200">
             <p className="text-2xl">Teachers</p>

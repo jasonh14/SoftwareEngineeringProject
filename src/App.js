@@ -5,6 +5,7 @@ import GetStarted from "src/pages/GetStarted";
 import SignUp from "./pages/SignUp";
 import Teacher from "./pages/Teacher";
 import History from "src/pages/History";
+import Book from "./pages/Book";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/teachers" element={<Teacher />} />
           <Route path="/history" element={<History />} />
+          <Route path="/teachers/:username" element={<Book />} />
         </Routes>
       </Router>
     </div>

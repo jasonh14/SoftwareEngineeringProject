@@ -20,7 +20,7 @@ const History = () => {
           <HistoryCard />
           <HistoryCard />
           <HistoryCard />
-          <HistoryCard />
+          <HistoryCard online={true} />
         </div>
       </div>
     </div>
