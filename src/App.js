@@ -12,6 +12,8 @@ import TeacherTerms from "./pages/TeacherTerms";
 import TeacherHome from "./pages/TeacherHome";
 import TeacherViewAppointment from "./pages/TeacherViewAppointment";
 import TeacherProfile from "./pages/TeacherProfile";
+import HomeTeacher from "./pages/HomeTeacher";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (

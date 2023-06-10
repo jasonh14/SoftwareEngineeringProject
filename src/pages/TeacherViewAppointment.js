@@ -25,12 +25,14 @@ const TeacherViewAppointment = () => {
                 </Link>
             </div>
             {/* right */}
-            <div className="flex flex-row items-center gap-6">
-                <p className="text-2xl font-semibold">Timothy Liundi</p>
-                <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
-                    <img src={timothy} alt="sample" />
+            <Link to={"/teacher/profile"}>
+                <div className="flex flex-row items-center gap-6 hover:bg-[#6619ff] rounded-full px-5">
+                    <p className="text-2xl font-semibold">Timothy Liundi</p>
+                    <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
+                        <img src={timothy} alt="sample" />
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
         {/* Table */}
         <table className=" mx-auto min-w-0 divide-y bg-[#D2AFFF] bg-opacity-50 font-gaegu my-28">
