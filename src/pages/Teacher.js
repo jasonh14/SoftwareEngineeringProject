@@ -79,13 +79,13 @@ const Teacher = () => {
         <Navbar user={user} />
       </div>
       <div className="bg-[url('src/assets/bg.svg')] w-screen bg-cover bg-no-repeat overflow-hidden">
-        <h1 className="font-gaegu text-6xl text-center font-bold sola-shadow py-9">
+        <h1 className="font-gaegu text-6xl text-center font-bold sola-shadow py-9 bg-white md:bg-inherit">
           Our Teachers
         </h1>
         {/* list of teachers */}
-        <div className="grid grid-cols-3 gap-4 p-12">
-          {teachers.map((teacher) => (
-            <TeacherCard teacher={teacher} />
+        <div className="md:grid flex flex-col md:grid-cols-3 gap-4 p-12">
+          {teachers.map((teacher, idx) => (
+            <TeacherCard teacher={teacher} key={idx} />
           ))}
         </div>
       </div>

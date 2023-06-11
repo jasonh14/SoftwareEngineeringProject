@@ -133,6 +133,7 @@ const Book = () => {
         learningMode: learningMode,
         teacherUid: teacher.uid,
         studentUid: currentUser.uid,
+        teacherPhoto: teacher.photo,
       };
 
       const appointmentCollectionRef = collection(firestore, "appointment");

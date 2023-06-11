@@ -33,7 +33,10 @@ export default function App() {
             path="/teacher/view-appointment"
             element={<TeacherViewAppointment />}
           />
-          <Route path="/teacher/profile" element={<TeacherProfile />} />
+          <Route
+            path="/teacher/profile/:username"
+            element={<TeacherProfile />}
+          />
           <Route path="/teachers/:uid" element={<Book />} />
           <Route path="/teacher/home" element={<HomeTeacher />} />
           <Route path="/profile/:username" element={<Profile />} />

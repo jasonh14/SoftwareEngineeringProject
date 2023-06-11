@@ -15,7 +15,7 @@ import {
 import { storage, firestore } from "src/firebase";
 import { useNavigate } from "react-router-dom";
 
-const EditProfile = ({ user, setShowEdit }) => {
+const EditTeacherProfile = ({ user, setShowEdit }) => {
   const fileInputRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [description, setDescription] = useState("");
@@ -42,7 +42,7 @@ const EditProfile = ({ user, setShowEdit }) => {
 
       // Update the "photo" field in the user document
       // const typeUser = teacher ? "teachers" : "users";
-      const collectionRef = collection(firestore, "users");
+      const collectionRef = collection(firestore, "teachers");
       const q = query(collectionRef, where("uid", "==", uid));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
@@ -152,4 +152,4 @@ const EditProfile = ({ user, setShowEdit }) => {
   );
 };
 
-export default EditProfile;
+export default EditTeacherProfile;

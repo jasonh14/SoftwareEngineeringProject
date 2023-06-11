@@ -16,11 +16,17 @@ const LoginForm = ({
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[url('src/assets/bg.svg')] h-screen w-screen bg-cover bg-no-repeat overflow-hidden">
+    <div className="md:bg-[url('src/assets/bg.svg')] h-screen w-screen bg-cover bg-no-repeat overflow-hidden p-4">
       <div className="w-full h-full flex justify-center items-center font-gaegu font-bold  flex-col gap-4 text-4xl">
-        <img src={logo} alt="logo" className="h-[300px] mt-[-250px]" />
-        <form className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
+        <div>
+          <img
+            src={logo}
+            alt="logo"
+            className="w-full md:h-[300px] mt-[-250px]"
+          />
+        </div>
+        <form className="flex flex-col gap-4 ">
+          <div className="flex md:flex-row flex-col  justify-start md:justify-between md:items-center items-start text-3xl">
             <label>Email: </label>
             <input
               value={email}
@@ -30,7 +36,7 @@ const LoginForm = ({
             />
           </div>
 
-          <div className="flex justify-between items-center">
+          <div className="flex md:flex-row flex-col  md:justify-between md:items-center justify-start items-start text-3xl">
             <label>Password: </label>
             <input
               value={pass}
@@ -53,7 +59,7 @@ const LoginForm = ({
             "bg-[#8C52FF] px-4 py-2 rounded-full cursor-pointer hover:bg-[#6619ff] transition duration-200"
           }
         />
-        <p>
+        <p className="text-[22px]">
           Dont have an account ?{" "}
           <Link to={teacher ? "/teacher/signup" : "/signup"}>
             Sign up here!

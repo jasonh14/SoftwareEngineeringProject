@@ -8,27 +8,27 @@ const Navbar = ({ user }) => {
   return (
     <div className="flex flex-row sticky justify-between font-gaegu h-[100px] shadow-lg p-6">
       {/* left */}
-      <div className="flex flex-row gap-6">
+      <div className="flex items-center flex-row md:gap-6 gap-1">
         <Link to="/" state={{ home: true }}>
-          <div className="h-full">
+          <div className="md:h-full w-16 ">
             <img className="cursor-pointer h-full" src={logo} alt="" />
           </div>
         </Link>
         <Link to="/teachers">
           <div className="bg-[#D2AFFF] px-4 py-2 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200">
-            <p className="text-2xl">Teachers</p>
+            <p className="md:text-2xl text-xs">Teachers</p>
           </div>
         </Link>
         <Link to={"/history"}>
           <div className="bg-[#D2AFFF] px-4 py-2 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200">
-            <p className="text-2xl">Appointment History</p>
+            <p className="md:text-2xl text-xs">Appointment History</p>
           </div>
         </Link>
       </div>
       {/* right */}
-      <div className="flex flex-row items-center gap-6">
+      <div className="flex flex-row items-center md:gap-6">
         <p className="text-2xl font-semibold">{user.name}</p>
-        <Link to={`/profile/${user.name}`} >
+        <Link to={`/profile/${user.name}`}>
           <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
             <img src={user.photo === "" ? defPhoto : user.photo} alt="sample" />
           </div>

@@ -1,14 +1,30 @@
 import React, { useState } from "react";
 import Rating from "@mui/material/Rating";
 import ClickAwayListener from "react-click-away-listener";
+import { collection, addDoc } from "firebase/firestore";
+import { firestore } from "src/firebase";
 
-const ReviewCard = ({ closeModal }) => {
-  const [value, setValue] = useState(null);
+const ReviewCard = ({ closeModal, value, setValue, history }) => {
   const [submit, setSubmit] = useState(false);
+  const [review, setReview] = useState("");
 
-  const submitReview = () => {
-    setSubmit(true);
-};
+  const submitReview = async () => {
+    try {
+      const data = {
+        review: review,
+        rating: value,
+        teacherUid: history.teacherUid,
+        studentUid: history.studentUid,
+      };
+      const reviewCollectionRef = collection(firestore, "review");
+
+      const docRef = await addDoc(reviewCollectionRef, data);
+      console.log("Review created and data stored in Firestore:", docRef.id);
+      setSubmit(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -47,6 +63,8 @@ const ReviewCard = ({ closeModal }) => {
                 <div className="flex flex-col justify-start items-start py-2">
                   <h1 className="text-5xl text-left">Write a review</h1>
                   <textarea
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
                     rows={5}
                     className="w-full border-2 rounded-xl resize-none bg-[#D2AFFF] p-2 text-lg"
                   ></textarea>

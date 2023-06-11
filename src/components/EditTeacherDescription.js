@@ -14,10 +14,11 @@ import {
 import { storage, firestore } from "src/firebase";
 import { useNavigate } from "react-router-dom";
 
-const EditDescription = ({ user, setShowEditDesc }) => {
+const EditTeacherDescription = ({ user, setShowEditDesc }) => {
   const fileInputRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [description, setDescription] = useState(user.description);
+  const [description, setDescription] = useState(user.desc);
+  const [price, setPrice] = useState(user.price);
   // console.log(selectedImage);
   const navigate = useNavigate();
   console.log(description);
@@ -26,23 +27,24 @@ const EditDescription = ({ user, setShowEditDesc }) => {
     const uid = user.uid;
 
     try {
-      // Update the "desc" field in the user document
-      const collectionRef = collection(firestore, "users");
+      // Update the "photo" field in the user document
+      const collectionRef = collection(firestore, "teachers");
       const q = query(collectionRef, where("uid", "==", uid));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         const docRef = doc.ref;
         updateDoc(docRef, {
-          description: description,
+          desc: description,
+          price: price,
         });
       });
 
       setShowEditDesc(false);
-      // window.location.reload();
-      navigate("/", { state: { home: true } });
 
       console.log("description changed and user document updated:");
-      // alert("success");
+      alert("success");
+      // window.location.reload();
+      navigate("/teacher/home");
     } catch (error) {
       console.error("Error uploading photo:", error);
     }
@@ -54,7 +56,7 @@ const EditDescription = ({ user, setShowEditDesc }) => {
       <div className="fixed z-40 w-screen h-screen top-0 left-0 flex justify-center items-center">
         <ClickAwayListener onClickAway={() => setShowEditDesc(false)}>
           <div className="bg-white p-12 rounded-xl font-gaegu">
-            <div className="p">
+            <div className="">
               <h1 className="text-xl">Edit your description</h1>
               <textarea
                 value={description}
@@ -62,6 +64,16 @@ const EditDescription = ({ user, setShowEditDesc }) => {
                 rows={5}
                 className="p-2 resize-none w-full border-[1px] border-black rounded-lg"
               ></textarea>
+            </div>
+
+            <div className="pt-2 pb-4">
+              <h1 className="text-xl">Edit your Price</h1>
+              <input
+                type="text"
+                className=" px-2 border-[1px] rounded-lg border-black"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </div>
 
             <div
@@ -77,4 +89,4 @@ const EditDescription = ({ user, setShowEditDesc }) => {
   );
 };
 
-export default EditDescription;
+export default EditTeacherDescription;

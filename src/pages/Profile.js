@@ -104,9 +104,9 @@ const Profile = () => {
         <Navbar user={user} />
         <div>
           <div className="w-screen h-[150px] bg-slate-400"></div>
-          <div className="flex flex-row justify-start py-4 gap-12 items-start">
+          <div className="flex flex-col md:flex-row justify-center items-center md:justify-start py-4 gap-12 md:items-start">
             {/* photo */}
-            <div className="flex-1 flex gap-4 flex-col items-end justify-center">
+            <div className="flex-1 flex gap-4 flex-row md:flex-col items-end justify-center">
               <div className="mt-[-75px] bg-white h-[200px] w-[200px] flex justify-center overflow-hidden rounded-full border-4 border-[#D2AFFF]">
                 <img
                   src={user.photo === "" ? photoDef : user.photo}
@@ -122,7 +122,7 @@ const Profile = () => {
             </div>
             {/* profile */}
             <div className="flex-1 font-gaegu flex items-start flex-col justify-start">
-              <div className="flex justify-between w-full pr-12">
+              <div className="flex md:flex-row flex-col-reverse justify-between w-full md:items-center pr-12">
                 <div>
                   <h1 className="text-3xl font-semibold">Profile</h1>
                   <p className="text-xl">{user.description}</p>
@@ -136,7 +136,7 @@ const Profile = () => {
                   </span>
                   <span
                     onClick={() => setShowEditDesc(true)}
-                    className=" bg-[#D2AFFF] py-2 px-4 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200"
+                    className=" bg-[#D2AFFF] py-2 px-4 mb-4 md:mb-0 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200"
                   >
                     <p className="text-2xl font-gaegu">Edit Description</p>
                   </span>
