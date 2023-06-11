@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import logo from "src/assets/lososola2.png";
 import Button from "src/components/Button";
 import { Link } from "react-router-dom";
-import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "src/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const SignUp = () => {
   const [selectedGender, setSelectedGender] = useState("");
@@ -67,8 +69,7 @@ const SignUp = () => {
       // localStorage.setItem("userData", JSON.stringify(currentUserData));
       // console.log("Current User Data:", currentUserData);
     } catch (error) {
-      console.error("Error creating user:", error);
-      console.error("Error storing user data in Firestore:", error);
+      alert("Error storing user data in Firestore:", error);
     }
   };
 
@@ -93,7 +94,7 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("test");
     // Reset all fill states
     setFillName(true);
     setFillGender(true);
@@ -156,7 +157,7 @@ const SignUp = () => {
       setFillTnc(false);
       isFormValid = false;
     }
-
+    console.log("test2");
     if (isFormValid) {
       // Perform further actions for a valid form submission
       console.log(selectedCity);
@@ -175,7 +176,7 @@ const SignUp = () => {
         checkedTnc: checkedTnc,
         city: selectedCity,
         gender: selectedGender,
-        date: startDate,
+        date: startDate.$d,
       };
       await signUp(email, password, userData);
 
@@ -242,12 +243,13 @@ const SignUp = () => {
 
             <div className="flex flex-col  items-start">
               <label>Date of Birth</label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select a date"
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
+                />
+              </LocalizationProvider>
+
               {fillDate ? (
                 ""
               ) : (

@@ -4,7 +4,9 @@ import sample from "src/assets/sample.jpg";
 import { Rating } from "@mui/material";
 import line from "src/assets/line.svg";
 import whatsapp from "src/assets/whatsapp.svg";
-import DatePicker from "react-datepicker";
+
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -124,7 +126,7 @@ const Book = () => {
 
       const data = {
         teacherName: teacher.name,
-        date: startDate,
+        date: startDate.$d,
         rating: teacher.rating,
         studentName: currentUser.name,
         time: time.$d,
@@ -261,12 +263,13 @@ const Book = () => {
                     <div>
                       <img className="w-full" src={calendar} alt="time" />
                     </div>
-                    <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                      dateFormat="dd/MM/yyyy"
-                      placeholderText="Select a date"
-                    />
+
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker
+                        value={startDate}
+                        onChange={(newValue) => setStartDate(newValue)}
+                      />
+                    </LocalizationProvider>
                   </div>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <div className="flex flex-row items-center justify-center gap-2 border-2 border-black rounded-lg p-2">

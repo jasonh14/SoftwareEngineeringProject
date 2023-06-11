@@ -70,7 +70,7 @@ const BookConfirm = ({
                   <p>Payment</p>
                 </div>
                 <div className="flex-1 flex justify-start flex-col">
-                  <p>: {formatDate(date)}</p>
+                  <p>: {formatDate(date.$d)}</p>
                   <p>: {formatTime(time.$d)}</p>
                   <p>: {learningMode}</p>
                   <p>: {selectedPayment}</p>
