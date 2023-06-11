@@ -64,7 +64,7 @@ const Main = () => {
       <div className="flex flex-row items-center gap-4 py-2">
         <Link to={`/profile/${username}`}>
           <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
-            <img src={photo ? photo : sample} alt="foto" />
+            <img src={photo ? photo : defPhoto} alt="foto" />
           </div>
         </Link>
         <div className="font-gaegu font-bold text-4xl">{username}</div>

@@ -34,7 +34,7 @@ export default function App() {
             element={<TeacherViewAppointment />}
           />
           <Route path="/teacher/profile" element={<TeacherProfile />} />
-          <Route path="/teachers/:username" element={<Book />} />
+          <Route path="/teachers/:uid" element={<Book />} />
           <Route path="/teacher/home" element={<HomeTeacher />} />
           <Route path="/profile/:username" element={<Profile />} />
         </Routes>

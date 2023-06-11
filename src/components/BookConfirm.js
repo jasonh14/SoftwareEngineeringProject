@@ -1,7 +1,42 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const BookConfirm = ({ closeBookConfirm }) => {
-  const [bookConfirm, setBookConfirm] = useState(false);
+const BookConfirm = ({
+  closeBookConfirm,
+  date,
+  time,
+  learningMode,
+  selectedPayment,
+  bookConfirm,
+  confirmBook,
+}) => {
+  const navigate = useNavigate();
+  const formatDate = (date) => {
+    var options = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+
+    var dateString = date.toLocaleDateString("en-US", options);
+
+    return dateString;
+  };
+
+  const formatTime = (time) => {
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
+    const amPm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+
+    return `${formattedHours}:${formattedMinutes} ${amPm}`;
+  };
+
+  console.log("date", date);
+  console.log("time", time);
+  console.log(learningMode);
+  console.log(selectedPayment);
 
   return (
     <>
@@ -16,7 +51,7 @@ const BookConfirm = ({ closeBookConfirm }) => {
                 Thank you for booking :)
               </p>
               <button
-                onClick={closeBookConfirm}
+                onClick={() => navigate("/history")}
                 className="rounded-full px-4 py-2 bg-[#D2AFFF]"
               >
                 Ok
@@ -35,22 +70,25 @@ const BookConfirm = ({ closeBookConfirm }) => {
                   <p>Payment</p>
                 </div>
                 <div className="flex-1 flex justify-start flex-col">
-                  <p>: 4 Jan 2024</p>
-                  <p>: 10.00</p>
-                  <p>: Online</p>
-                  <p>: Blu by BCA</p>
+                  <p>: {formatDate(date)}</p>
+                  <p>: {formatTime(time.$d)}</p>
+                  <p>: {learningMode}</p>
+                  <p>: {selectedPayment}</p>
                 </div>
               </div>
               <div className="flex flex-row justify-around mt-4">
-                <button
-                  className="rounded-full px-4 py-2 bg-[#D2AFFF]"
-                  onClick={() => setBookConfirm(true)}
+                <div
+                  className="cursor-pointer rounded-full px-4 py-2 bg-[#D2AFFF]"
+                  onClick={confirmBook}
                 >
                   Yes
-                </button>
-                <button className="rounded-full px-4 py-2 bg-gray-400">
+                </div>
+                <div
+                  onClick={closeBookConfirm}
+                  className="cursor-pointer rounded-full px-4 py-2 bg-gray-400"
+                >
                   No
-                </button>
+                </div>
               </div>
             </>
           )}

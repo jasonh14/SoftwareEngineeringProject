@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
       {/* right */}
       <div className="flex flex-row items-center gap-6">
         <p className="text-2xl font-semibold">{user.name}</p>
-        <Link to={`/profile/${user.name}`}>
+        <Link to={`/profile/${user.name}`} >
           <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
             <img src={user.photo === "" ? defPhoto : user.photo} alt="sample" />
           </div>

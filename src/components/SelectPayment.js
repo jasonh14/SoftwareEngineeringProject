@@ -3,6 +3,10 @@ import blu from "src/assets/blu.svg";
 import Radio from "@mui/material/Radio";
 import { lightBlue } from "@mui/material/colors";
 import ClickAwayListener from "react-click-away-listener";
+import gopay from "src/assets/gopay.svg";
+import ovo from "src/assets/ovo.svg";
+import bank from "src/assets/banktransfer.svg";
+import debit from "src/assets/debit.svg";
 
 const SelectPayment = ({
   selectedPayment,
@@ -23,11 +27,13 @@ const SelectPayment = ({
             <div className="flex flex-row gap-4">
               <div className="flex flex-col flex-1 gap-2">
                 <p>Digital Wallet</p>
-                <div className="flex flex-row justify-center items-center p-4 bg-black rounded-lg gap-4">
-                  <img src={blu} alt="blu" />
-                  <p className="text-white text-sm font-poppins">
-                    Pay with blu BCA
-                  </p>
+                <div className="flex flex-row justify-between  items-center p-4 bg-black rounded-lg gap-4">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img src={blu} alt="blu" />
+                    <p className="text-white text-sm font-poppins">
+                      Pay with blu BCA
+                    </p>
+                  </div>
                   <Radio
                     checked={selectedPayment === "blu"}
                     onChange={handlePayment}
@@ -42,15 +48,16 @@ const SelectPayment = ({
                     }}
                   />
                 </div>
-                <div className="flex flex-row justify-center items-center p-4 bg-black rounded-lg gap-4">
-                  <img src={blu} alt="blu" />
-                  <p className="text-white text-sm font-poppins">
-                    Pay with blu BCA
-                  </p>
+
+                <div className="flex flex-row justify-between  items-center p-4 bg-black rounded-lg gap-4">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img src={ovo} alt="Ovo" />
+                    <p className="text-white text-sm font-poppins">Ovo</p>
+                  </div>
                   <Radio
-                    checked={selectedPayment === "blu"}
+                    checked={selectedPayment === "ovo"}
                     onChange={handlePayment}
-                    value="blu"
+                    value="ovo"
                     name="radio-buttons"
                     inputProps={{ "aria-label": "A" }}
                     sx={{
@@ -61,15 +68,16 @@ const SelectPayment = ({
                     }}
                   />
                 </div>
-                <div className="flex flex-row justify-center items-center p-4 bg-black rounded-lg gap-4">
-                  <img src={blu} alt="blu" />
-                  <p className="text-white text-sm font-poppins">
-                    Pay with blu BCA
-                  </p>
+
+                <div className="flex flex-row justify-between  items-center p-4 bg-black rounded-lg gap-4">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img src={gopay} alt="gopay" />
+                    <p className="text-white text-sm font-poppins">Gopay </p>
+                  </div>
                   <Radio
-                    checked={selectedPayment === "blu"}
+                    checked={selectedPayment === "gopay"}
                     onChange={handlePayment}
-                    value="blu"
+                    value="gopay"
                     name="radio-buttons"
                     inputProps={{ "aria-label": "A" }}
                     sx={{
@@ -84,15 +92,17 @@ const SelectPayment = ({
               <div className="flex-1">
                 <div className="flex flex-col flex-1 gap-2">
                   <p>Other payment methods</p>
-                  <div className="flex flex-row justify-center bg-black items-center p-4  rounded-lg gap-4">
-                    <img src={blu} alt="blu" />
-                    <p className="text-white text-sm font-poppins">
-                      Pay with blu BCA
-                    </p>
+                  <div className="flex flex-row justify-between  items-center p-4 bg-black rounded-lg gap-4">
+                    <div className="flex flex-row gap-2 items-center">
+                      <img src={debit} alt="card" />
+                      <p className="text-white text-sm font-poppins">
+                        Add Debit/Credit Card
+                      </p>
+                    </div>
                     <Radio
-                      checked={selectedPayment === "blu"}
+                      checked={selectedPayment === "card"}
                       onChange={handlePayment}
-                      value="blu"
+                      value="card"
                       name="radio-buttons"
                       inputProps={{ "aria-label": "A" }}
                       sx={{
@@ -103,15 +113,17 @@ const SelectPayment = ({
                       }}
                     />
                   </div>
-                  <div className="flex flex-row justify-center items-center p-4 bg-black rounded-lg gap-4">
-                    <img src={blu} alt="blu" />
-                    <p className="text-white text-sm font-poppins">
-                      Pay with blu BCA
-                    </p>
+                  <div className="flex flex-row justify-between  items-center p-4 bg-black rounded-lg gap-4">
+                    <div className="flex flex-row gap-2 items-center">
+                      <img src={bank} alt="bank" />
+                      <p className="text-white text-sm font-poppins">
+                        Bank Transfer
+                      </p>
+                    </div>
                     <Radio
-                      checked={selectedPayment === "blu"}
+                      checked={selectedPayment === "bank"}
                       onChange={handlePayment}
-                      value="blu"
+                      value="bank"
                       name="radio-buttons"
                       inputProps={{ "aria-label": "A" }}
                       sx={{
@@ -122,16 +134,14 @@ const SelectPayment = ({
                       }}
                     />
                   </div>
-                  <div className="flex flex-row justify-start items-center py-4  gap-4">
-                    <button className="px-4 py-2 rounded-lg border-2 border-black bg-black text-white">
-                      Ok
-                    </button>
-                    <button
+
+                  <div className="flex flex-row gap-4 justify-end">
+                    <div
                       onClick={closeDetail}
-                      className="px-4 py-2 rounded-lg border-2 border-black bg-white text-black"
+                      className="bg-black rounded-xl py-2 px-6 text-white"
                     >
-                      Cancel
-                    </button>
+                      Ok
+                    </div>
                   </div>
                 </div>
               </div>
