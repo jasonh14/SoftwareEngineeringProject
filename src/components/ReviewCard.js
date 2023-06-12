@@ -49,7 +49,7 @@ const ReviewCard = ({ closeModal, value, setValue, history }) => {
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="text-5xl">Leave a review</h1>
                   <p className="text-xl py-4">
-                    Click the stars to rate Eugenia Ancilla
+                    Click the stars to rate {history.teacherName}
                   </p>
                   <Rating
                     name="simple-controlled"
