@@ -372,7 +372,15 @@ const SignUp = () => {
                 checked={checkedTnc}
                 onChange={() => setCheckedTnc((prev) => !prev)}
               />
-              <p>I agree to the terms and conditions</p>
+              <p>
+                I agree to the{" "}
+                <Link to={"/tnc"} target="_blank">
+                  {" "}
+                  <span className="underline cursor-pointer">
+                    terms and conditions
+                  </span>
+                </Link>{" "}
+              </p>
             </div>
             {fillTnc ? (
               ""

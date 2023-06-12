@@ -15,6 +15,7 @@ import TeacherProfile from "./pages/TeacherProfile";
 import HomeTeacher from "./pages/HomeTeacher";
 import Profile from "./pages/Profile";
 import Role from "./pages/Role";
+import Tnc from "./pages/Tnc";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/teacher/home" element={<HomeTeacher />} />
           <Route path="/profile/:username" element={<Profile />} />
           <Route path="/role" element={<Role />} />
+          <Route path="/tnc" element={<Tnc />} />
         </Routes>
       </Router>
     </div>

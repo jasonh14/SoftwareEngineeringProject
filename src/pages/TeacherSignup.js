@@ -9,12 +9,12 @@ import { storage, firestore } from "src/firebase";
 
 const TeacherSignup = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  console.log("agree", state);
+  // const { state } = useLocation();
+  // console.log("agree", state);
   const fileInputRef = useRef(null);
   const [selectedFile, setselectedFile] = useState(null);
   const [uploaded, setUploaded] = useState(false);
-  const [tnc, setTnc] = useState(state?.agree || false);
+  const [tnc, setTnc] = useState(false);
   const [showErr, setShowErr] = useState(false);
 
   const handleClick = () => {};
@@ -118,6 +118,7 @@ const TeacherSignup = () => {
                     I agree to the{" "}
                     <a
                       href="/teacher/terms"
+                      target="_blank"
                       className="hover:text-[#6619ff] transition duration-200"
                     >
                       <u>terms and condition</u>

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const TeacherTerms = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/teacher/signup", { state: { agree: true } });
+    navigate("/teacher/signup");
   };
   return (
     <div className="bg-[#E4CFFF]">
