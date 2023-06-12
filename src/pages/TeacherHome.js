@@ -6,6 +6,7 @@ import side from "src/assets/side_note.png";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { firestore } from "src/firebase";
 import defPhoto from "src/assets/user.png";
+import logoPhone from "src/assets/logo_phone.svg";
 
 const TeacherHome = () => {
   const [username, setUsername] = useState("");
@@ -71,12 +72,21 @@ const TeacherHome = () => {
         </div>
       </Link>
 
-      <img src={mainIcon} alt="main icon" className="mt-[150px]" />
+      <img
+        src={mainIcon}
+        alt="main icon"
+        className="hidden md:block mt-[150px]"
+      />
+      <img
+        src={logoPhone}
+        alt="main icon"
+        className="block md:hidden mt-[150px]"
+      />
 
       <div className="font-gaegu font-bold flex flex-row justify-center items-center gap-4 w-full px-20">
         <Link to="/teacher/view-appointment">
           <div className="bg-[#D2AFFF] px-4 py-2 rounded-full cursor-pointer hover:bg-[#6619ff] transition duration-200">
-            <p className="text-2xl">View Appointment</p>
+            <p className="md:text-2xl">View Appointment</p>
           </div>
         </Link>
       </div>

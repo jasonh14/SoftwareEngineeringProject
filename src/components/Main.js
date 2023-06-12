@@ -5,6 +5,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { firestore } from "src/firebase";
 import sample from "src/assets/sample.jpg";
 import defPhoto from "src/assets/user.png";
+import logoPhone from "src/assets/logo_phone.svg";
 
 const Main = () => {
   const [username, setUsername] = useState("");
@@ -70,7 +71,8 @@ const Main = () => {
         <div className="font-gaegu font-bold text-4xl">{username}</div>
       </div>
 
-      <img src={mainIcon} alt="main icon" />
+      <img src={mainIcon} alt="main icon" className="hidden md:block" />
+      <img src={logoPhone} alt="main icon" className="block md:hidden" />
 
       <div className="font-gaegu font-bold flex flex-row justify-center items-center gap-4 w-full px-20">
         <Link to="/teachers">

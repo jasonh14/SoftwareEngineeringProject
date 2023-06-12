@@ -91,15 +91,17 @@ const TeacherViewAppointment = () => {
   };
 
   const formatDate = (seconds) => {
-    const milliseconds = seconds * 1000; // Convert seconds to milliseconds
-    const date = new Date(milliseconds);
+    let timestamp = seconds.seconds * 1000; // Convert seconds to milliseconds
+    let date = new Date(timestamp);
 
-    // Extract day, month, and year components
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Month is zero-based
-    const year = date.getFullYear().toString();
+    let day = date.getDate();
+    let month = date.getMonth() + 1; // Month is zero-based, so we add 1
+    let year = date.getFullYear();
 
-    return `${day}/${month}/${year}`;
+    let formattedDate = `${day.toString().padStart(2, "0")}/${month
+      .toString()
+      .padStart(2, "0")}/${year}`;
+    return formattedDate;
   };
 
   function convertSecondsToHour(seconds) {
@@ -129,35 +131,32 @@ const TeacherViewAppointment = () => {
         {/* Background */}
         {/* <img src={bg} alt="bg" className="absolute -z-50 top-0" /> */}
         {/* Navbar */}
-        <div className="flex flex-row sticky bg-white justify-between font-gaegu h-[100px] shadow-lg p-6">
+        <div className="flex flex-row sticky bg-white justify-between font-gaegu h-[100px] shadow-lg md:p-6">
           {/* left */}
-          <div className="flex flex-row gap-6">
+          <div className="flex flex-row gap-6 items-center">
             <Link to="/teacher/home">
-              <div className="h-full">
-                <img className="cursor-pointer h-full" src={logo} alt="logo" />
+              <div className="w-full">
+                <img className="cursor-pointer w-full" src={logo} alt="" />
               </div>
             </Link>
             <Link to={"/teacher/view-appointment"}>
               <div className="bg-[#D2AFFF] px-4 py-2 rounded-full cursor-pointer flex justify-center items-center hover:bg-[#6619ff] transition duration-200">
-                <p className="text-2xl">View Appointment</p>
+                <p className="md:text-2xl text-sm">View Appointment</p>
               </div>
             </Link>
           </div>
           {/* right */}
-          <Link to={`/teacher/profile/${user.name}`}>
-            <div className="flex flex-row items-center gap-6 hover:bg-[#6619ff] rounded-full px-5">
-              <p className="text-2xl font-semibold">{user.name}</p>
+          <div className="flex flex-row items-center md:gap-6 hover:bg-[#6619ff] rounded-full px-5">
+            <p className="text-2xl font-semibold">{user.name}</p>
+            <Link to={`/teacher/profile/${user.name}`}>
               <div className="h-12 w-12 overflow-hidden rounded-full border-4 border-[#D2AFFF]">
-                <img
-                  src={user.photo === "" ? defPhoto : user.photo}
-                  alt="sample"
-                />
+                <img src={user.photo ? user.photo : defPhoto} alt="sample" />
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         {/* Table */}
-        <div className="p-4">
+        <div className="p-4 md:block d-none">
           <table className=" z-20 rounded-xl relative mx-auto min-w-0 divide-y bg-[#e3cdff]  font-gaegu my-28">
             <thead className="rounded-xl">
               <tr>
@@ -211,6 +210,38 @@ const TeacherViewAppointment = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="flex flex-col gap-4 items-center p-4 justify-center py-12">
+          {appointments.map((data) => (
+            <div className="flex flex-row font-gaegu justify-center w-[300px] p-4 rounded-xl bg-[#D2AFFF]">
+              <div className="flex-1 flex justify-start flex-col font-bold">
+                <p>Student Name</p>
+                <p>Date</p>
+                <p>Time</p>
+                <p>Learning Mode</p>
+                <p>Zoom</p>
+              </div>
+              <div className="flex-1 flex justify-start flex-col">
+                <p>: {data.studentName}</p>
+                <p>: {formatDate(data.date)}</p>
+                <p>: {convertSecondsToHour(data.time.seconds)}</p>
+                <p>: {data.learningMode}</p>
+                {data.learningMode === "Online" ? (
+                  <Link
+                    to={
+                      "https://binus.zoom.us/j/93296129287?pwd=OHlJVzBCeThTWnkzNW5zK3N6V0lyZz09"
+                    }
+                    target="_blank"
+                  >
+                    <p className="cursor-pointer">: Start</p>
+                  </Link>
+                ) : (
+                  <p className="">: -</p>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );

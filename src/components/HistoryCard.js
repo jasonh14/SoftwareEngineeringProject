@@ -10,7 +10,7 @@ const HistoryCard = ({ online, history }) => {
   const [value, setValue] = useState(history.rating);
   const [showReview, setShowReview] = useState(false);
   const formatDate = (seconds) => {
-    const milliseconds = seconds * 1000; // Convert seconds to milliseconds
+    const milliseconds = seconds.seconds * 1000; // Convert seconds to milliseconds
     const date = new Date(milliseconds);
 
     // Extract day, month, and year components

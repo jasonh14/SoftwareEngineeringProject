@@ -14,6 +14,7 @@ import TeacherViewAppointment from "./pages/TeacherViewAppointment";
 import TeacherProfile from "./pages/TeacherProfile";
 import HomeTeacher from "./pages/HomeTeacher";
 import Profile from "./pages/Profile";
+import Role from "./pages/Role";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/teachers/:uid" element={<Book />} />
           <Route path="/teacher/home" element={<HomeTeacher />} />
           <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/role" element={<Role />} />
         </Routes>
       </Router>
     </div>

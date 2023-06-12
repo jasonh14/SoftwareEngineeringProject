@@ -187,7 +187,7 @@ const Book = () => {
           />
         )}
 
-        <div className="flex flex-row gap-4 p-6 items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-4 p-6 items-center justify-center">
           <div className="flex-1">
             <div className="flex flex-row items-center gap-4">
               <div className="h-[150px] w-[150px] overflow-hidden rounded-full">

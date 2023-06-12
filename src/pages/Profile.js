@@ -67,7 +67,7 @@ const Profile = () => {
     try {
       await signOut(auth);
       // Redirect to the desired page after successful logout
-      navigate("/login");
+      navigate("/role");
       localStorage.clear();
     } catch (error) {
       console.error("Error logging out:", error);
