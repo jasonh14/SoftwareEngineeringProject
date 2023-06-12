@@ -156,7 +156,7 @@ const TeacherViewAppointment = () => {
           </div>
         </div>
         {/* Table */}
-        <div className="p-4 md:block d-none">
+        <div className="p-4 md:block hidden">
           <table className=" z-20 rounded-xl relative mx-auto min-w-0 divide-y bg-[#e3cdff]  font-gaegu my-28">
             <thead className="rounded-xl">
               <tr>
@@ -212,7 +212,7 @@ const TeacherViewAppointment = () => {
           </table>
         </div>
 
-        <div className="flex flex-col gap-4 items-center p-4 justify-center py-12">
+        <div className="flex md:hidden flex-col gap-4 items-center p-4 justify-center py-12">
           {appointments.map((data) => (
             <div className="flex flex-row font-gaegu justify-center w-[300px] p-4 rounded-xl bg-[#D2AFFF]">
               <div className="flex-1 flex justify-start flex-col font-bold">
