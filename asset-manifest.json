@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/SoftwareEngineeringProject/static/css/main.967c75d7.css",
+    "main.js": "/SoftwareEngineeringProject/static/js/main.fe88e61a.js",
+    "static/js/787.c1112931.chunk.js": "/SoftwareEngineeringProject/static/js/787.c1112931.chunk.js",
+    "static/media/teacher_profileBanner.png": "/SoftwareEngineeringProject/static/media/teacher_profileBanner.0bda580e08fc30cac197.png",
+    "static/media/bg.svg": "/SoftwareEngineeringProject/static/media/bg.49397691fcba50c62388.svg",
+    "static/media/timothy.png": "/SoftwareEngineeringProject/static/media/timothy.70045f66fa34e3fed70d.png",
+    "static/media/mainIcon.svg": "/SoftwareEngineeringProject/static/media/mainIcon.6f1628c35533106b187cfac2037f6d3d.svg",
+    "static/media/sample.jpg": "/SoftwareEngineeringProject/static/media/sample.d1ff23b65db9b18103fc.jpg",
+    "static/media/logo_phone.svg": "/SoftwareEngineeringProject/static/media/logo_phone.55e1bca20aaba0f89858149da3174e8a.svg",
+    "static/media/ovo.svg": "/SoftwareEngineeringProject/static/media/ovo.a9421b938a101d5a3d460cf362dd5d36.svg",
+    "static/media/line.svg": "/SoftwareEngineeringProject/static/media/line.bdd67c759a8a9900785a27c6cf98d486.svg",
+    "static/media/gopay.svg": "/SoftwareEngineeringProject/static/media/gopay.0847b3df504335bfcf0e80348c9b370e.svg",
+    "static/media/bg_no_sola.png": "/SoftwareEngineeringProject/static/media/bg_no_sola.d5943977e4ea7528ec6a.png",
+    "static/media/lososola2.png": "/SoftwareEngineeringProject/static/media/lososola2.4936e6a0d3b5c72731fa.png",
+    "static/media/bg_bottom_no_sola.png": "/SoftwareEngineeringProject/static/media/bg_bottom_no_sola.cecf6319498cefd49f5b.png",
+    "static/media/bg_top_no_sola.png": "/SoftwareEngineeringProject/static/media/bg_top_no_sola.811e05f15309002cbcc8.png",
+    "static/media/teacher_profile_bottom.png": "/SoftwareEngineeringProject/static/media/teacher_profile_bottom.f21fa1e5a4fffb82e0b0.png",
+    "static/media/whatsapp.svg": "/SoftwareEngineeringProject/static/media/whatsapp.18ab89bb0686079f21258ad13369a9e2.svg",
+    "static/media/side_note.png": "/SoftwareEngineeringProject/static/media/side_note.daa3462e6a0aa914acda.png",
+    "static/media/user.png": "/SoftwareEngineeringProject/static/media/user.961568814dceb733c85a.png",
+    "static/media/Student.png": "/SoftwareEngineeringProject/static/media/Student.10a769343915771a3df2.png",
+    "static/media/Teacher.png": "/SoftwareEngineeringProject/static/media/Teacher.2471ea47adf470991801.png",
+    "static/media/debit.svg": "/SoftwareEngineeringProject/static/media/debit.0a6e6bd219c027621de227c33910bd6f.svg",
+    "static/media/blu.svg": "/SoftwareEngineeringProject/static/media/blu.0c56e8575d4d852e05170ba75756df1f.svg",
+    "static/media/online.svg": "/SoftwareEngineeringProject/static/media/online.a0dd25ba282d5e77f7486171c0528234.svg",
+    "index.html": "/SoftwareEngineeringProject/index.html",
+    "static/media/calender.svg": "/SoftwareEngineeringProject/static/media/calender.32f1fcc1c16e1c72dcb6a5e195cedb48.svg",
+    "static/media/time.svg": "/SoftwareEngineeringProject/static/media/time.43e587af242d57ecbff92dfe4b561075.svg",
+    "static/media/back.svg": "/SoftwareEngineeringProject/static/media/back.ab87e6bacf0ce123d3822aaa5edc413d.svg",
+    "static/media/banktransfer.svg": "/SoftwareEngineeringProject/static/media/banktransfer.cfa5e112afe752ba3c2627992bb86a00.svg",
+    "static/media/arrow.svg": "/SoftwareEngineeringProject/static/media/arrow.60728afb54ea210c0d118083f99d4980.svg",
+    "main.967c75d7.css.map": "/SoftwareEngineeringProject/static/css/main.967c75d7.css.map",
+    "main.fe88e61a.js.map": "/SoftwareEngineeringProject/static/js/main.fe88e61a.js.map",
+    "787.c1112931.chunk.js.map": "/SoftwareEngineeringProject/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.967c75d7.css",
+    "static/js/main.fe88e61a.js"
+  ]
+}
